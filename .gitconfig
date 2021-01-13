@@ -1,0 +1,8 @@
+[push]
+   default = simple
+[alias]
+   co = checkout
+   branches = branch -l
+   remotes = remote -v
+[pager]
+	branch = false

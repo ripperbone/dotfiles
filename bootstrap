@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+load_env() {
+   if [ -f bootstrap-env ]; then
+      source bootstrap-env
+   fi
+}
+
+install_dotfiles(){
+
+   cd "$(dirname "$0")" || exit 0
+   DOTFILES=$(pwd -P)
+
+   while IFS= read -r -d '' file
+   do
+      # Create parent directory if it does not exist.
+      mkdir -v -p "${HOME}/$(dirname "${file}")"
+      #echo "mkdir -p "${HOME}/$(dirname "${file}")""
+
+
+      #echo "${DOTFILES}/${file} -> ${HOME}/${file}"
+      cp -v "${DOTFILES}/${file}" "${HOME}/${file}"
+
+   done < <(find . -type f -not -wholename '*\.git/*' -not -name '.gitignore' -not -name 'README.md' -not -name 'LICENSE' \
+      -not -name 'bootstrap' -not -name 'bootstrap-env' -not -name 'bootstrap-env.example' -print0)
+
+}
+
+
+configure_git() {
+   if [ -z "${GIT_USER_NAME}" ] || [ -z "${GIT_USER_EMAIL}" ]; then
+      >&2 echo "${BASH_SOURCE[0]}: variables are not set to configure GIT!"
+   else
+      git config --global user.name "${GIT_USER_NAME}"
+      git config --global user.email "${GIT_USER_EMAIL}"
+   fi
+}
+
+load_env
+install_dotfiles
+configure_git
+
+echo "Done."

@@ -1,0 +1,25 @@
+# This file should be at ~/.ncmpcpp/config
+
+
+#playlist_display_mode = "columns"
+#browser_display_mode = "columns"
+display_bitrate = yes
+#main_window_color = 8
+#main_window_highlight_color = 16
+#progressbar_color = 16
+#progressbar_elapsed_color = 5
+#main_window_color = 1
+#main_window_highlight_color = 2
+mouse_support = no
+#user_interface = alternative
+
+
+# Needed for tag editor and file operations to work.
+mpd_music_dir = "/srv/shared/music"
+
+
+lyrics_directory = "~/Documents/notes/songs/lyrics"
+#progressbar_look = "=|="
+
+mpd_host = localhost
+mpd_port = 6600
