@@ -1,7 +1,7 @@
 
 export EDITOR=vi
 
-export PS1='\u@\h \w $ '
+export PS1='[\u@\h \w]$ '
 
 if [ -z ${USER_PATH_ADDITIONS} ]; then
 
