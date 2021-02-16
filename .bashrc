@@ -1,22 +1,19 @@
 
 export EDITOR=vi
 
-export PS1='[\u@\h \w]$ '
+export PS1='[\u@\h \w]\$ '
 
-if [ -z ${USER_PATH_ADDITIONS} ]; then
+export GOPATH="${HOME}/code/go"
 
-   export USER_PATH_ADDITIONS=~/code/scripts:\
-~/code/python:\
-~/code/go/bin:\
-~/.local/bin:\
-~/.npm-global/bin:\
-~/.cabal/bin:\
-/usr/local/google_appengine
+export USER_PATH_ADDITIONS="${HOME}/code/scripts:\
+${HOME}/code/python:\
+${GOPATH}/bin:\
+${HOME}/.local/bin:\
+${HOME}/.npm-global/bin:\
+${HOME}/.cabal/bin"
 
-   export PATH=${USER_PATH_ADDITIONS}:${PATH}
-fi
+export PATH="${USER_PATH_ADDITIONS}:${PATH}"
 
-export GOPATH=${HOME}/code/go
 
 
 # use ls colors
