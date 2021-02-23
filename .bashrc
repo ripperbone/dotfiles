@@ -10,7 +10,8 @@ ${HOME}/code/python:\
 ${GOPATH}/bin:\
 ${HOME}/.local/bin:\
 ${HOME}/.npm-global/bin:\
-${HOME}/.cabal/bin"
+${HOME}/.cabal/bin:\
+${HOME}/.cargo/bin"
 
 export PATH="${USER_PATH_ADDITIONS}:${PATH}"
 
