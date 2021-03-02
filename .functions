@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# See: https://eklitzke.org/bash-subcommand-aliases
+
+# see defined functions:
+alias what-functions='declare -F'
+
+# unset function:
+# unset -f my-function-name
+
+function todoist() {
+   if [ "$1" == "inbox" ]; then
+      shift 1
+      # command suppresses shell function lookup
+      command todoist list --filter="#inbox" "$@"
+   else
+      command todoist "$@"
+   fi
+}
+
+function t() {
+   if [ "$1" == "list" ]; then
+      shift 1
+
+      if [ "$1" == "timeline" ]; then
+         shift 1
+         list_id=$(command t lists | grep "$1" | head -1)
+         echo "LIST ID: ${list_id}"
+         shift 1
+         command t list timeline "${list_id}" "$@"
+      elif [ "$1" == "members" ]; then
+         shift 1
+         list_id=$(command t lists | grep "$1" | head -1)
+         echo "LIST ID: ${list_id}"
+         shift 1
+         command t list members "${list_id}" "$@"
+      elif [ "$1" == "information" ]; then
+         shift 1
+         list_id=$(command t lists | grep "$1" | head -1)
+         echo "LIST ID: ${list_id}"
+         shift 1
+         command t list information "${list_id}" "$@"
+
+      else
+         command t list "$@"
+      fi
+   else
+      command t "$@"
+   fi
+}

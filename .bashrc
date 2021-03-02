@@ -20,6 +20,7 @@ export PATH="${USER_PATH_ADDITIONS}:${PATH}"
 # use ls colors
 alias ls='ls --color=auto'
 test -f ~/.aliases && . ~/.aliases
+test -f ~/.functions && . ~/.functions
 
 
 # DEFINE FUNCTIONS
