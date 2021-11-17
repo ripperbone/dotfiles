@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+
+import yaml
+import os
+from shutil import copyfile
+
+conf_file_path = os.path.expanduser("~/.config/alacritty/alacritty.yml")
+backup_file_path = "{}.orig".format(conf_file_path)
+
+if not os.path.exists(backup_file_path):
+   copyfile(conf_file_path, backup_file_path)
+
+with open(conf_file_path, 'r') as conf_file:
+   conf = yaml.safe_load(conf_file)
+   conf["font"]["size"] = 11.0
+
+with open(conf_file_path, 'w') as conf_file:
+   yaml.dump(conf, conf_file)

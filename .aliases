@@ -8,11 +8,12 @@ alias scd='cd'  # whoops, leftover `s` from ls
 alias rm='rm -v'
 alias rmdir='rmdir -v'
 
-alias lock='xdg-screensaver lock'
-alias logout='gnome-session-quit'
+alias lock='lock_screen'
+alias logout='logout_session'
 
 # macOS has this out of the box. Usage: echo "something" | pbcopy
 alias pbcopy='xclip -selection clipboard'
+alias clear-clipboard='xsel -cb'
 
 alias ncmpc='ncmpcpp'
 alias open-file='gio open'

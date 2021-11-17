@@ -1,0 +1,54 @@
+# Reload sxhkd config
+# pkill -USR1 -x sxhkd
+
+# Terminal
+super + Return
+   alacritty
+
+# Application launcher
+super + space
+   rofi -modi drun -show drun -show-icons
+
+# close window
+ctrl + q
+   bspc node --close
+
+# toggle window fullscreen
+super + f
+   bspc node --state \~fullscreen
+
+# focus next/previous window
+alt + {_,shift} + Tab
+   bspc node --focus {next,prev}
+
+# focus next/previous desktop
+super + {_,shift} + Tab
+   bspc desktop --focus {next,prev}
+
+# move window to left/right desktop
+super + shift + {Left,Right}
+   bspc node --to-desktop {prev,next} --focus
+
+# log out
+super + shift + Escape
+   logout_session
+
+# lock screen
+ctrl + alt + Delete
+   lock_screen
+
+# volume
+XF86AudioLowerVolume
+   pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioRaiseVolume
+   pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioPlay
+   mpc toggle
+
+XF86AudioNext
+   mpc next
+
+XF86AudioPrev
+   mpc prev

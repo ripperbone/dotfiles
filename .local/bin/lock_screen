@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "${DESKTOP_SESSION}" = "bspwm" ]; then
+   i3lock --ignore-empty-password --no-unlock-indicator --image="$HOME/Pictures/wallpapers/abstract_dim.png"
+else
+   xdg-screensaver lock
+fi

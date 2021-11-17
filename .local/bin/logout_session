@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "${DESKTOP_SESSION}" = "bspwm" ]; then
+   bspc quit
+elif [ "${DESKTOP_SESSION}" = "gnome" ]; then
+   gnome-session-quit
+else
+   echo "No log out command"
+   exit 2
+fi
