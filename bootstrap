@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 load_env() {
-   if [ -f bootstrap-env ]; then
-      source bootstrap-env
-   fi
+   test -f bootstrap-env && source bootstrap-env
 }
 
 install_dotfiles(){
@@ -22,7 +20,7 @@ install_dotfiles(){
       cp -v "${DOTFILES}/${file}" "${HOME}/${file}"
 
    done < <(find . -type f -not -wholename '*\.git/*' -not -name '.gitignore' -not -name 'README.md' -not -name 'LICENSE' \
-      -not -name 'bootstrap' -not -name 'bootstrap-env' -not -name 'bootstrap-env.example' -print0)
+      -not -name 'bootstrap' -not -name 'bootstrap-env' -not -name 'bootstrap-env.example' -not -name 'shellcheck.sh' -print0)
 
 }
 
