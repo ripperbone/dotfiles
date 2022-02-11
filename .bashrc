@@ -15,7 +15,8 @@ ${HOME}/.cargo/bin"
 
 export PATH="${USER_PATH_ADDITIONS}:${PATH}"
 
-
+export HISTCONTROL=ignoredups
+export HISTIGNORE="clear:history"
 
 # use ls colors
 alias ls='ls --color=auto'
