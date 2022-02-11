@@ -38,5 +38,6 @@ if [[ $- =~ "i" ]]; then
 fi
 
 test -f /etc/bash_completion && . /etc/bash_completion
+test -f ~/.bash_completions && . ~/.bash_completions
 
 set -o vi
