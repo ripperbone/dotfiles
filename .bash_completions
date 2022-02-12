@@ -5,7 +5,7 @@ _volume_sh_complete() {
    if [ "${#COMP_WORDS[@]}" -gt 2 ]; then
       return
    fi
-   COMPREPLY=($(compgen -W "$(volume.sh -h | tail -n +2 | sed 's/ \{1,\}/,/g' | cut -d, -f2)" -- "${COMP_WORDS[1]}"))
+   mapfile -t COMPREPLY < <(compgen -W "$(volume.sh -h | tail -n +2 | sed 's/ \{1,\}/,/g' | cut -d, -f2)" -- "${COMP_WORDS[1]}")
 
 }
 
@@ -15,40 +15,40 @@ _snapcast_volume_py_complete() {
 
    if [ "${#COMP_WORDS[@]}" -eq 6 ]; then
       if [ "${COMP_WORDS[4]}" = "--client" ]; then
-         COMPREPLY=($(compgen -W "$(snapcast_volume.py list | jq -r 'keys[]')" -- "${COMP_WORDS[5]}"))
+         mapfile -t COMPREPLY < <(compgen -W "$(snapcast_volume.py list | jq -r 'keys[]')" -- "${COMP_WORDS[5]}")
       fi
 
    elif [ "${#COMP_WORDS[@]}" -eq 5 ]; then
       if [ "${COMP_WORDS[1]}" = "volume" ]; then
          if [ "${COMP_WORDS[2]}" = "--level" ]; then
-            COMPREPLY=($(compgen -W "--client --all --me" -- "${COMP_WORDS[4]}"))
+            mapfile -t COMPREPLY < <(compgen -W "--client --all --me" -- "${COMP_WORDS[4]}")
          else
-            COMPREPLY=($(compgen -W "--level" -- "${COMP_WORDS[4]}"))
+            mapfile -t COMPREPLY < <(compgen -W "--level" -- "${COMP_WORDS[4]}")
          fi
       fi
    elif [ "${#COMP_WORDS[@]}" -eq 4 ]; then
       if [ "${COMP_WORDS[1]}" = "volume" ]; then
          if [ "${COMP_WORDS[2]}" = "--client" ]; then
-            COMPREPLY=($(compgen -W "$(snapcast_volume.py list | jq -r 'keys[]')" -- "${COMP_WORDS[3]}"))
+            mapfile -t COMPREPLY < <(compgen -W "$(snapcast_volume.py list | jq -r 'keys[]')" -- "${COMP_WORDS[3]}")
          elif [ "${COMP_WORDS[2]}" = "--level" ]; then
             # if --level, wait for a number arg
             return
          else
-            COMPREPLY=($(compgen -W "--level" -- "${COMP_WORDS[3]}"))
+            mapfile -t COMPREPLY < <(compgen -W "--level" -- "${COMP_WORDS[3]}")
          fi
       else
          if [ "${COMP_WORDS[2]}" = "--client" ]; then
-            COMPREPLY=($(compgen -W "$(snapcast_volume.py list | jq -r 'keys[]')" -- "${COMP_WORDS[3]}"))
+            mapfile -t COMPREPLY < <(compgen -W "$(snapcast_volume.py list | jq -r 'keys[]')" -- "${COMP_WORDS[3]}")
          fi
       fi
    elif [ "${#COMP_WORDS[@]}" -eq 3 ]; then
       if [ "${COMP_WORDS[1]}" = "mute" ] || [ "${COMP_WORDS[1]}" = "unmute" ]; then
-         COMPREPLY=($(compgen -W "--client --all --me" -- "${COMP_WORDS[2]}"))
+         mapfile -t COMPREPLY < <(compgen -W "--client --all --me" -- "${COMP_WORDS[2]}")
       elif [ "${COMP_WORDS[1]}" = "volume" ]; then
-         COMPREPLY=($(compgen -W "--client --all --me --level" -- "${COMP_WORDS[2]}"))
+         mapfile -t COMPREPLY < <(compgen -W "--client --all --me --level" -- "${COMP_WORDS[2]}")
       fi
    elif [ "${#COMP_WORDS[@]}" -eq 2 ]; then
-      COMPREPLY=($(compgen -W "list mute unmute volume" -- "${COMP_WORDS[1]}"))
+      mapfile -t COMPREPLY < <(compgen -W "list mute unmute volume" -- "${COMP_WORDS[1]}")
    fi
 }
 
