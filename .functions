@@ -55,3 +55,7 @@ function t() {
       command t "$@"
    fi
 }
+
+function df_no_snap() {
+   df -h | awk '{ if ( !($6 ~/^\/snap\//) ) { print } }'
+}
