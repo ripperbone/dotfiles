@@ -8,23 +8,6 @@ alias what-functions='declare -F'
 # unset function:
 # unset -f my-function-name
 
-function todoist() {
-   if [ "$1" = "inbox" ]; then
-      shift 1
-      # command suppresses shell function lookup
-      command todoist list --filter="#inbox" "$@"
-   elif [ "$1" = "overdue" ]; then
-      shift 1
-      command todoist list --filter="overdue" "$@"
-   elif [ "$1" = "done" ]; then
-      # make 'done' an alias for 'close'
-      shift 1
-      command todoist close "$@"
-   else
-      command todoist "$@"
-   fi
-}
-
 function t() {
    if [ "$1" = "list" ]; then
       shift 1
