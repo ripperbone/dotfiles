@@ -19,7 +19,7 @@ alias ncmpc='ncmpcpp'
 alias open-file='gio open'
 alias empty-trash='echo "Emptying trash..." && gio trash --empty'
 alias emacs='emacs --no-window-system'
-alias rake='echo [bundle exec rake] && bundle exec rake'
+alias rake='test -f Gemfile && echo [bundle exec rake] && bundle exec rake || rake'
 
 # check temperature on Raspberry Pi. User must be in the 'video' group
 alias pi-check-temp='/opt/vc/bin/vcgencmd measure_temp'
