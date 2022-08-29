@@ -2,6 +2,8 @@
 
 if [ "${DESKTOP_SESSION}" = "bspwm" ]; then
    i3lock --ignore-empty-password --no-unlock-indicator --image="$HOME/Pictures/wallpapers/abstract_dim.png"
+elif [ "${DESKTOP_SESSION}" = "cinnamon" ]; then
+   cinnamon-screensaver-command -l
 else
    xdg-screensaver lock
 fi
