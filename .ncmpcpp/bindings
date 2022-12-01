@@ -426,7 +426,8 @@ def_key "y"
 #def_key "e"
 #  edit_library_album
 #
-#def_key "e"
+def_key "e"
+   dummy
 #  edit_directory_name
 #
 #def_key "e"
