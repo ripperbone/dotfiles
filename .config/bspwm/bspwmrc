@@ -16,6 +16,3 @@ feh --bg-fill ~/Pictures/wallpapers/abstract.png
 
 # prevent cursor from switching to an 'X'
 xsetroot -cursor_name left_ptr
-
-# adjust font size in alacritty config
-test -f ~/.local/bin/fix_font_size && fix_font_size 11
