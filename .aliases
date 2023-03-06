@@ -15,6 +15,7 @@ alias logout='logout_session'
 alias pbcopy='xclip -selection clipboard'
 alias clear-clipboard='xsel -cb'
 
+alias todoist='todoist.py'
 alias ncmpc='ncmpcpp'
 alias open-file='gio open'
 alias empty-trash='echo "Emptying trash..." && gio trash --empty'
