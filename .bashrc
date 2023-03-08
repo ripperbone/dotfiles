@@ -35,7 +35,7 @@ function set-terminal-title() {
 
 if [[ $- =~ "i" ]]; then
    # shell is interactive
-   set-terminal-title "$(hostname)"
+   set-terminal-title "bash"
 fi
 
 test -f /etc/bash_completion && . /etc/bash_completion
