@@ -18,6 +18,9 @@ export PATH="${USER_PATH_ADDITIONS}:${PATH}"
 export HISTCONTROL=ignoredups
 export HISTIGNORE="clear:history"
 
+
+export JQ_COLORS="1;30:0;39:0;39:0;39:0;36:1;39:1;39"
+
 # use ls colors
 alias ls='ls --color=auto'
 test -f ~/.aliases && . ~/.aliases
