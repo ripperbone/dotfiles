@@ -4,5 +4,6 @@
    co = checkout
    branches = branch -l
    remotes = remote -v
+   short = log --format='%C(yellow)%h%C(reset) %cs %cl %s'
 [pager]
 	branch = false
