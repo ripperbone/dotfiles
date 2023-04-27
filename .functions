@@ -8,6 +8,16 @@ alias what-functions='declare -F'
 # unset function:
 # unset -f my-function-name
 
+function ashuffle() {
+   EXCLUDE_FILE="${HOME}/.config/ashuffle_exclude.yml"
+   if [ -f "${EXCLUDE_FILE}" ]; then
+      echo "Using exclude file: ${EXCLUDE_FILE}"
+      command ashuffle --exclude-from "${EXCLUDE_FILE}" "$@"
+   else
+      command ashuffle "$@"
+   fi
+}
+
 function t() {
    if [ "$1" = "list" ]; then
       shift 1
