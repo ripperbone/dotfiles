@@ -8,47 +8,6 @@ alias what-functions='declare -F'
 # unset function:
 # unset -f my-function-name
 
-function ashuffle() {
-   EXCLUDE_FILE="${HOME}/.config/ashuffle_exclude.yml"
-   if [ -f "${EXCLUDE_FILE}" ]; then
-      echo "Using exclude file: ${EXCLUDE_FILE}"
-      command ashuffle --exclude-from "${EXCLUDE_FILE}" "$@"
-   else
-      command ashuffle "$@"
-   fi
-}
-
-function t() {
-   if [ "$1" = "list" ]; then
-      shift 1
-
-      if [ "$1" = "timeline" ]; then
-         shift 1
-         list_id=$(command t lists | grep "$1" | head -1)
-         echo "LIST ID: ${list_id}"
-         shift 1
-         command t list timeline "${list_id}" "$@"
-      elif [ "$1" = "members" ]; then
-         shift 1
-         list_id=$(command t lists | grep "$1" | head -1)
-         echo "LIST ID: ${list_id}"
-         shift 1
-         command t list members "${list_id}" "$@"
-      elif [ "$1" = "information" ]; then
-         shift 1
-         list_id=$(command t lists | grep "$1" | head -1)
-         echo "LIST ID: ${list_id}"
-         shift 1
-         command t list information "${list_id}" "$@"
-
-      else
-         command t list "$@"
-      fi
-   else
-      command t "$@"
-   fi
-}
-
-function df_no_snap() {
-   df -h | awk '{ if ( !($6 ~/^\/snap\//) ) { print } }'
+function czdate() {
+   LC_ALL=cs_CZ.UTF-8 date +"%A %d %B %Y %H:%M:%S %Z"
 }
