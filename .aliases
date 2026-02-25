@@ -10,17 +10,3 @@ alias rmdir='rmdir -v'
 
 alias lock='lock_screen'
 alias logout='logout_session'
-
-# macOS has this out of the box. Usage: echo "something" | pbcopy
-alias pbcopy='xclip -selection clipboard'
-alias clear-clipboard='xsel -cb'
-
-alias todoist='todoist.py'
-alias ncmpc='ncmpcpp'
-alias open-file='gio open'
-alias empty-trash='echo "Emptying trash..." && gio trash --empty'
-alias emacs='emacs --no-window-system'
-alias rake='test -f Gemfile && echo [bundle exec rake] && bundle exec rake || rake'
-
-# check temperature on Raspberry Pi. User must be in the 'video' group
-alias pi-check-temp='/opt/vc/bin/vcgencmd measure_temp'
